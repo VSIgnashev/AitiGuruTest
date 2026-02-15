@@ -11,7 +11,7 @@ function PopUp(): React.ReactElement {
   const dispatch = useAppDispatch()
 
 
-  type FieldType = {
+  interface FieldType {
     login?: string;
     password?: string;
     rememberMe?: boolean;
@@ -20,7 +20,6 @@ function PopUp(): React.ReactElement {
 
   const onFinish = (values: FieldType) => {
 
-    console.log('onFInishEnter')
 
     if (values.login && values.password) {
 
@@ -51,7 +50,8 @@ function PopUp(): React.ReactElement {
           <div className="flex flex-col gap-3">
             <h2 className={"text-[#232323] font-semibold text-[40px] leading-[1.1] tracking-[-0.015em] "}>Добро
               пожаловать</h2>
-            <p className={"leading-[1.5] font-medium text-[18px]  text-[#E0E0E0]"}>Пожалуйста, авторизируйтесь</p>
+            <p className={"leading-[1.5] text-center font-medium text-[18px]  text-[#E0E0E0]"}>Пожалуйста,
+              авторизируйтесь</p>
           </div>
           <div className="">
             <ConfigProvider theme={{
@@ -86,7 +86,7 @@ function PopUp(): React.ReactElement {
                     }}
 
                     style={{padding: "14px 16px"}}
-                    prefix={<img src={"public/userInputLogo.svg"} alt="icon of person"/>}/>
+                    prefix={<img src={"public/userInputIcon.svg"} alt="icon of person"/>}/>
                 </Form.Item>
                 <Form.Item<FieldType>
 
