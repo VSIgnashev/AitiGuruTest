@@ -40,8 +40,14 @@ const getStoredToken = (): string | null => {
 
 const getStoredUser = (): User | null => {
   const user = sessionStorage.getItem("user") || localStorage.getItem("user");
-  return user ? (JSON.parse(user) as User) : null;
 
+  if (!user || user === "undefined") return null;
+
+  try {
+    return JSON.parse(user) as User;
+  } catch {
+    return null;
+  }
 };
 
 
@@ -72,7 +78,11 @@ export const login = createAsyncThunk<LoginResponse, LoginPayload, { rejectValue
       const storage = payload.rememberMe ? localStorage : sessionStorage;
       storage.setItem("accessToken", res.data.accessToken);
       storage.setItem("refreshToken", res.data.refreshToken);
-      storage.setItem("user", JSON.stringify(res.data.user));
+      if (res.data.user) {
+        storage.setItem("user", JSON.stringify(res.data.user));
+      } else {
+        storage.removeItem("user");
+      }
 
       return res.data;
     } catch (err) {
@@ -84,6 +94,7 @@ export const login = createAsyncThunk<LoginResponse, LoginPayload, { rejectValue
 );
 
 export const logout = createAsyncThunk<void, void>("auth/logout", async () => {
+  console.log('logout')
   sessionStorage.clear();
   localStorage.clear();
 });

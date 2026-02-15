@@ -6,9 +6,10 @@ import {login} from "../store/authSlice.ts";
 
 function PopUp(): React.ReactElement {
 
-  const [error, setError] = React.useState<string>("Error")
+  const [error, setError] = React.useState<string>("")
 
   const dispatch = useAppDispatch()
+
 
   type FieldType = {
     login?: string;
@@ -28,7 +29,10 @@ function PopUp(): React.ReactElement {
         login: values.login,
         password: values.password,
         rememberMe: !!values.rememberMe
-      })).then(res => console.log(res)).catch(err => setError(err.message))
+      })).unwrap().then(res => console.log(res)).catch(err => {
+
+        setError(err)
+      })
     }
   }
 
@@ -37,10 +41,6 @@ function PopUp(): React.ReactElement {
       <div
         className="bg-linear-to-t p-[1px] from-[rgba(237,237,237,0)] to-[rgba(237,237,237,1)] rounded-[34px] overflow-hidden ">
 
-        {/*
-
-          //TODO: look at inner corner radius
-          */}
 
         <div
           className="p-12 items-center flex flex-col gap-4 bg-white bg-linear-to-t from-white via-[rgba(35,35,35,0)] to-[rgba(35,35,35,0.03)]  rounded-[33px] ">
@@ -109,7 +109,7 @@ function PopUp(): React.ReactElement {
                 <Form.Item style={{marginBottom: 16}}>
                   <div className="w-[400px]">
                     <Button htmlType={"submit"} type={"primary"} block
-                            className={" bg-[#242EDB] bg-gradient-to-t from-[rgba(255,255,255,0] to-[rgba(255,255,255,0.12)]"}>Войти</Button>
+                            className={" bg-[#242EDB]! bg-gradient-to-t! from-[rgba(255,255,255,0]! to-[rgba(255,255,255,0.12)]! rounded-[12px]! border-1! border-[#367AFF]! hover:opacity-80 active:opacity-90"}>Войти</Button>
                   </div>
                 </Form.Item>
 
@@ -125,7 +125,7 @@ function PopUp(): React.ReactElement {
               </div>
 
               <div className="mt-4 text-[#6C6C6C] leading-[1.5] font-normal">Нет аккаунта? <span
-                className={"text-[#242ED8] font-semibold"}>Создать</span></div>
+                className={"text-[#242ED8] cursor-pointer"}>Создать</span></div>
 
 
             </ConfigProvider>
@@ -134,6 +134,8 @@ function PopUp(): React.ReactElement {
           </div>
         </div>
       </div>
+
+
     </div>
   );
 }
