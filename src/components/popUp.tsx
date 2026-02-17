@@ -33,7 +33,8 @@ function PopUp(): React.ReactElement {
   };
 
   return (
-    <div className="p-[6px] rounded-[40px]  bg-white shadow-[0_24px_32px_0_rgba(0,0,0,0.04)] w-fit font-inter mx-auto">
+    <div
+      className="p-[6px] rounded-[40px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-white shadow-[0_24px_32px_0_rgba(0,0,0,0.04)] w-fit font-inter mx-auto">
       <div
         className="bg-linear-to-t p-[1px] from-[rgba(237,237,237,0)] to-[rgba(237,237,237,1)] rounded-[34px] overflow-hidden ">
         <div

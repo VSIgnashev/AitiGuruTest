@@ -6,34 +6,45 @@
 @import "tailwindcss";
 
 @theme {
-  --font-inter: "Inter", sans-serif;
-  --font-cairo: "Cairo", sans-serif;
-  --font-openSans: "Open Sans", sans-serif;
-  --font-robotoMono: "Roboto Mono", monospace;
-  --font-roboto: "Roboto", sans-serif;
+    --font-inter: "Inter", sans-serif;
+    --font-cairo: "Cairo", sans-serif;
+    --font-openSans: "Open Sans", sans-serif;
+    --font-robotoMono: "Roboto Mono", monospace;
+    --font-roboto: "Roboto", sans-serif;
 }
 
 body {
-  font-weight: 500;
-  background-color: rgba(249, 249, 249, 1);
+    font-weight: 500;
+    background-color: rgba(249, 249, 249, 1);
 }
 
 .no-tick .ant-checkbox::after {
-  display: none !important;
+    display: none !important;
 }
 
 .ant-table-column-sorter {
-  display: none !important;
+    display: none !important;
 }
 
 .ant-pagination-item {
-  border: 1px solid #b2b3b9 !important;
+    border: 1px solid #b2b3b9 !important;
 }
 
 .ant-pagination-item-active {
-  border: none !important;
+    border: none !important;
 }
 
+
 .ant-table-pagination {
-  margin-top: 40px !important;
+    margin-top: 40px !important;
+}
+
+
+.ant-table-cell.ant-table-selection-column:has(label.ant-checkbox-wrapper-checked) {
+    border-left: 3px solid #3C538E !important;
+}
+
+.ant-table-cell {
+    border-top: 1px solid #E2E2E2 !important;
+    border-bottom: 1px solid #E2E2E2 !important;
 }
