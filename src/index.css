@@ -48,3 +48,8 @@ body {
     border-top: 1px solid #E2E2E2 !important;
     border-bottom: 1px solid #E2E2E2 !important;
 }
+
+
+.ant-table-selection-column {
+    border-radius: 0 !important;
+}
