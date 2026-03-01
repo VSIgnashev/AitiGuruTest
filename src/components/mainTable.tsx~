@@ -9,7 +9,7 @@ import {
   message,
   type CheckboxChangeEvent,
 } from "antd";
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import api from "../api.ts";
 import FormattedNumber from "./formattedNumber.tsx";
 
@@ -91,7 +91,7 @@ function MainTable() {
         variant={"filled"}
         className={"w-[52px]! h-[26px]! rounded-[23px]! bg-[#242EDB]!"}
       >
-        <img alt={"plus icon"} src={"/plusIcon.svg"}/>
+        <img alt={"plus icon"} src={"/plusIcon.svg"} />
       </Button>
     );
   }
@@ -159,10 +159,8 @@ function MainTable() {
           className="p-[6px] rounded-[40px]  bg-white shadow-[0_24px_32px_0_rgba(0,0,0,0.04)] w-fit font-inter mx-auto"
           onClick={(e) => e.stopPropagation()}
         >
-          <div
-            className="bg-linear-to-t p-[1px] from-[rgba(237,237,237,0)] to-[rgba(237,237,237,1)] rounded-[34px] overflow-hidden ">
-            <div
-              className="p-12 items-center flex flex-col gap-4 bg-white bg-linear-to-t from-white via-[rgba(35,35,35,0)] to-[rgba(35,35,35,0.03)]  rounded-[33px] ">
+          <div className="bg-linear-to-t p-[1px] from-[rgba(237,237,237,0)] to-[rgba(237,237,237,1)] rounded-[34px] overflow-hidden ">
+            <div className="p-12 items-center flex flex-col gap-4 bg-white bg-linear-to-t from-white via-[rgba(35,35,35,0)] to-[rgba(35,35,35,0.03)]  rounded-[33px] ">
               <div className="flex flex-col gap-3">
                 <h2
                   className={
@@ -183,7 +181,7 @@ function MainTable() {
                         controlHeight: 54,
                       },
                     },
-                    token: {fontFamily: "Inter", fontSize: 18},
+                    token: { fontFamily: "Inter", fontSize: 18 },
                   }}
                 >
                   <Form
@@ -193,10 +191,10 @@ function MainTable() {
                     requiredMark={false}
                   >
                     <Form.Item<FieldType>
-                      style={{marginBottom: "16px"}}
+                      style={{ marginBottom: "16px" }}
                       name={"title"}
                       rules={[
-                        {required: true, message: "Введите наименование"},
+                        { required: true, message: "Введите наименование" },
                       ]}
                       label={"Наименование"}
                     >
@@ -211,19 +209,19 @@ function MainTable() {
                             </div>
                           ),
                         }}
-                        style={{padding: "14px 16px"}}
+                        style={{ padding: "14px 16px" }}
                       />
                     </Form.Item>
                     <Form.Item<FieldType>
-                      style={{marginBottom: "20px"}}
+                      style={{ marginBottom: "20px" }}
                       label={"Вендор"}
                       name={"vendor"}
                       rules={[
-                        {required: true, message: "Введите название вендора"},
+                        { required: true, message: "Введите название вендора" },
                       ]}
                     >
                       <Input
-                        style={{padding: "14px 16px"}}
+                        style={{ padding: "14px 16px" }}
                         allowClear={{
                           clearIcon: (
                             <div className={"w-4 h-4"}>
@@ -238,13 +236,13 @@ function MainTable() {
                     </Form.Item>
 
                     <Form.Item<FieldType>
-                      style={{marginBottom: "20px"}}
+                      style={{ marginBottom: "20px" }}
                       label={"Артикул"}
                       name={"sku"}
-                      rules={[{required: true, message: "Введите артикул"}]}
+                      rules={[{ required: true, message: "Введите артикул" }]}
                     >
                       <Input
-                        style={{padding: "14px 16px"}}
+                        style={{ padding: "14px 16px" }}
                         allowClear={{
                           clearIcon: (
                             <div className={"w-4 h-4"}>
@@ -258,19 +256,19 @@ function MainTable() {
                       />
                     </Form.Item>
                     <Form.Item<FieldType>
-                      style={{marginBottom: "20px"}}
+                      style={{ marginBottom: "20px" }}
                       label={"Цена" + ""}
                       name={"price"}
-                      rules={[{required: true, message: "Введите цену"}]}
+                      rules={[{ required: true, message: "Введите цену" }]}
                     >
                       <InputNumber
                         decimalSeparator={","}
-                        style={{padding: "14px 16px", width: "100%"}}
+                        style={{ padding: "14px 16px", width: "100%" }}
                       />
                     </Form.Item>
 
                     <div className={"mb-4 text-red-500"}>{}</div>
-                    <Form.Item style={{marginBottom: 16}}>
+                    <Form.Item style={{ marginBottom: 16 }}>
                       <div className="w-[400px]">
                         <Button
                           htmlType={"submit"}
@@ -391,7 +389,7 @@ function MainTable() {
       key: "price",
       width: 350,
       align: "center" as const,
-      render: (price: number) => <FormattedNumber value={price * 102}/>,
+      render: (price: number) => <FormattedNumber value={price * 102} />,
       sorter: (a: Product, b: Product) => (a.price ?? 0) - (b.price ?? 0),
     },
     {
@@ -403,8 +401,8 @@ function MainTable() {
       render: () => {
         return (
           <div className={"flex gap-8"}>
-            <AddButton/>
-            <MoreButton/>
+            <AddButton />
+            <MoreButton />
           </div>
         );
       },
@@ -437,7 +435,7 @@ function MainTable() {
             <Input
               placeholder={"Найти"}
               onChange={handleSearch}
-              styles={{input: {fontFamily: "Inter"}}}
+              styles={{ input: { fontFamily: "Inter" } }}
               prefix={
                 <img
                   src={"/magnifyingGlassLogo.svg"}
@@ -466,7 +464,7 @@ function MainTable() {
                 }
               >
                 <div className="size-[22px] ">
-                  <img src={"/refreshIcon.svg"} alt="icon of refresh"/>
+                  <img src={"/refreshIcon.svg"} alt="icon of refresh" />
                 </div>
               </Button>
               <Button
@@ -516,7 +514,7 @@ function MainTable() {
               rowSelection={{
                 columnWidth: 58,
                 columnTitle: (
-                  <Checkbox className="no-tick" onChange={handleSelectAll}/>
+                  <Checkbox className="no-tick" onChange={handleSelectAll} />
                 ),
                 renderCell: (_, record) => (
                   <Checkbox
@@ -546,7 +544,7 @@ function MainTable() {
           </ConfigProvider>
         </div>
       </section>
-      {isAddingNewItem && <AddNewItemPopUp/>}
+      {isAddingNewItem && <AddNewItemPopUp />}
       <>{contextHolder}</>
     </>
   );

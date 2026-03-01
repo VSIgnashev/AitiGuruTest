@@ -1,0 +1,87 @@
+import FormattedNumber from "./formattedNumber.tsx";
+import React from "react";
+
+const columns = [
+  {
+    title: "Наименование",
+    dataIndex: "title",
+    key: "title",
+    width: 480,
+    render: (title: string, record: Product) => {
+      return (<div className={"w-[278px h-12 flex gap-[18px] items-center"}>
+      <div className="size-12 rounded-lg border-1 border-[#ECECEB] bg-[#C4C4C4]"></div>
+        <div className="flex flex-col gap-[10px]">
+      <h5 className={"font-cairo font-bold text-[16px]  leading-none h-auto"}>{title}</h5>
+        <p className={"text-[#B2B3B9] font-cairo text-[14px] font-normal leading-none"}>{record.category}</p>
+        </div>
+        </div>)
+    },
+    sorter: (a: Product, b: Product) => (a.title ?? "").localeCompare(b.title ?? ""),
+  },
+  {
+    title: "Вендор",
+    dataIndex: "brand",
+    key: "brand",
+    width: 125,
+    render: (brand: string) => {
+      return (
+        <p className={"font-openSans font-bold text-[16px] leading-none"}>{brand}</p>
+      )
+    }
+    ,
+    sorter: (a: Product, b: Product) => (a.brand ?? "").localeCompare(b.brand ?? ""),
+  },
+
+  {
+    title: "Артикул",
+    dataIndex: "sku",
+    key: "sku",
+    width: 380,
+    align: "center" as const,
+    render: (sku: string) => {
+      return (
+        <p className={"font-openSans font-normal text-[16px] leading-none"}>{sku}</p>
+      )
+    },
+    sorter: (a: Product, b: Product) => (a.sku ?? "").localeCompare(b.sku ?? ""),
+  },
+  {
+    title: "Оценка",
+    dataIndex: "rating",
+    key: "rating",
+    width: 170,
+    align: "center" as const,
+    render: (rating: number) => {
+      return (
+        <>{rating < 3 ?
+          <p className={"font-openSans font-normal text-[16px] leading-none"}><span
+            className={"text-[#F11010]"}>{rating}</span>/5</p> :
+          <p className={"font-openSans font-normal text-[16px] leading-none"}>{rating}/5</p>}</>
+    )
+    },
+    sorter: (a: Product, b: Product) => (a.rating ?? 0) - (b.rating ?? 0),
+  },
+  {
+    title: "Цена, ₽",
+    dataIndex: "price",
+    key: "price",
+    width: 350,
+    align: "center" as const,
+    render: (price: number) => <FormattedNumber value={price * 102}/>
+  ,
+  sorter: (a: Product, b: Product) => (a.price ?? 0) - (b.price ?? 0),
+},
+{
+  title: "",
+    dataIndex: "actionButtons",
+  key: "actionButtons",
+  align: "center" as const,
+  width: 255,
+  render: () => {
+  return <div className={"flex gap-8"}>
+    <AddButton/>
+    <MoreButton/>
+    </div>
+}
+}
+]

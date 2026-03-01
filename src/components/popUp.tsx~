@@ -40,7 +40,7 @@ function PopUp(): React.ReactElement {
         <div
           className="p-12 items-center flex flex-col gap-4 bg-white bg-linear-to-t from-white via-[rgba(35,35,35,0)] to-[rgba(35,35,35,0.03)]  rounded-[33px] ">
           <div className="size-[52px]">
-            <img src={"/popUpLogo.svg"} alt="company logo"/>
+            <img src={"public/popUpLogo.svg"} alt="company logo"/>
           </div>
           <div className="flex flex-col gap-3">
             <h2
@@ -89,7 +89,7 @@ function PopUp(): React.ReactElement {
                       clearIcon: (
                         <div className={"w-4 h-4"}>
                           <img
-                            src={"/crossIcon.svg"}
+                            src={"public/crossIcon.svg"}
                             alt={"cross icon"}
                           />
                         </div>
@@ -98,7 +98,7 @@ function PopUp(): React.ReactElement {
                     style={{padding: "14px 16px"}}
                     prefix={
                       <img
-                        src={"/userInputIcon.svg"}
+                        src={"public/userInputIcon.svg"}
                         alt="icon of person"
                       />
                     }
@@ -120,7 +120,7 @@ function PopUp(): React.ReactElement {
                     }
                     style={{padding: "14px 16px"}}
                     prefix={
-                      <img src={"/lockIcon.svg"} alt="icon of person"/>
+                      <img src={"public/lockIcon.svg"} alt="icon of person"/>
                     }
                   />
                 </Form.Item>
